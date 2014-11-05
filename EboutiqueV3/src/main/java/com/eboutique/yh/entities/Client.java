@@ -3,13 +3,21 @@ package com.eboutique.yh.entities;
 import java.io.Serializable;
 import java.util.Collection;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+@Entity
 public class Client implements Serializable{
-
+	@Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long idClient;
 	private String nomClient;
 	private String adresse;
 	private String email;
 	private String tel;
+	@OneToMany(mappedBy="client")
 	private Collection<Commande>commandes;
 	
 	

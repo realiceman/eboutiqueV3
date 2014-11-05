@@ -2,12 +2,24 @@ package com.eboutique.yh.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+@Entity
 public class LigneCommande implements Serializable {
-
+	@Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
+	@ManyToOne
+	@JoinColumn(name="idProduit")
 	private Produit produit;
 	private int quantite;
 	private double prix;
+	@ManyToOne
+	@JoinColumn(name="idCommande")
 	private Commande commande;
 	
 	public LigneCommande() {
