@@ -14,6 +14,7 @@ import com.eboutique.yh.metier.IAdminCategoriesMetier;
 
 public class TestJPA {
 	ClassPathXmlApplicationContext context;
+	
 	@Before
 	public void setUp() throws Exception {
 		context = new ClassPathXmlApplicationContext(new String[]{"applicationContext.xml"});
