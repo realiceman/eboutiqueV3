@@ -43,7 +43,7 @@ public class AdminCategoriesController {
 		  return("categories");
 	  }
 	  
-	  if(!file.isEmpty()) {
+	  if(!file.isEmpty()) { 
 		  BufferedImage bi = ImageIO.read(file.getInputStream());
 		  c.setPhoto(file.getBytes());
 		  c.setNomPhoto(file.getOriginalFilename());
