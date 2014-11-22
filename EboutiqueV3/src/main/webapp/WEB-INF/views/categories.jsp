@@ -1,9 +1,17 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="f"%>
-<div id="formCat">
+
+<head>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/style1.css">
+
+</head>
+<div class="errors">
+${exception}
+</div>
+<div id="formCat" class="cadre">
 	<f:form modelAttribute="categorie" action="saveCat" method="post"
 		enctype="multipart/form-data">
-		<table>
+		<table class="tab1">
 			<tr>
 				<td>ID Categorie</td>
 				<td><f:input path="idcategorie" /></td>
@@ -21,11 +29,18 @@
 			</tr>
 			<tr>
 				<td>Photo</td>
-				<td><input type="file" name="file" /></td>
+				<td>
+				<c:if test="${categorie.idcategorie !=null}">
+				<img src="photoCat?idCat=${categorie.idcategorie}"/>
+				</c:if>
+				</td>
+				<td>
+				<input type="file" name="file" />
+				</td>
 
 			</tr>
 			<tr>
-				<td><input type="submit" value="Save"></td>
+				<td id="submit"><input type="submit" value="Save"></td>
 			</tr>
 		</table>
 
@@ -33,8 +48,8 @@
 
 </div>
 
-<div id="">
-	<table>
+<div id="tabCategories" class="cadre">
+	<table class="tab1">
 		<tr>
 
 			<th>ID</th>
@@ -50,6 +65,8 @@
 				<td>${cat.nomCategorie}</td>
 				<td>${cat.description}</td>
 				<td><img src="photoCat?idCat=${cat.idcategorie}"/></td>
+				<td><a href="suppCat?idCat=${cat.idcategorie}">Supp</a></td>
+				<td><a href="editCat?idCat=${cat.idcategorie}">Edit</a></td>
 			</tr>
 
 
