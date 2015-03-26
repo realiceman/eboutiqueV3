@@ -28,7 +28,7 @@ import com.eboutique.yh.metier.IAdminCategoriesMetier;
 @Controller
 @RequestMapping(value="/adminCat")
 
-public class AdminCategoriesController implements HandlerExceptionResolver {
+public class AdminCategoriesController implements HandlerExceptionResolver { //
    @Autowired
    private IAdminCategoriesMetier metier;
    
@@ -69,14 +69,14 @@ public class AdminCategoriesController implements HandlerExceptionResolver {
 	   model.addAttribute("categories",metier.listCategories());
 	
 	  }
-	  
+	   
 	  return "categories";
    }
    
    
    
    @RequestMapping(value="photoCat", produces=MediaType.IMAGE_JPEG_VALUE)
-   @ResponseBody
+   @ResponseBody   //ne recherche pas de vue mais directement ds le corps de la reponse
    public byte[] photoCat(Long idCat) throws IOException{
 	  Categorie c = metier.getCategorie(idCat); 
 	  return IOUtils.toByteArray(new ByteArrayInputStream(c.getPhoto())) ;
@@ -107,7 +107,7 @@ public class AdminCategoriesController implements HandlerExceptionResolver {
 @Override
 public ModelAndView resolveException(HttpServletRequest request,
 		HttpServletResponse response, Object arg2, Exception ex) {
-	ModelAndView mv = new ModelAndView();
+	ModelAndView mv = new ModelAndView(); // permet d'ajouter des attributs
 	mv.addObject("categorie", new Categorie());
 	mv.addObject("categories", metier.listCategories());
 	mv.addObject("exception", ex.getMessage());
