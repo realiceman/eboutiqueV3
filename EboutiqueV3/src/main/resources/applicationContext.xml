@@ -49,7 +49,7 @@
 	<s:intercept-url pattern="/adminCat/**" access="ROLE_ADMIN_CAT" />
 	<s:form-login login-page="/login" default-target-url="/adminProd/index"
 		authentication-failure-url="/login" />
-	<s:logout logout-success-url="/logout" />
+	<s:logout logout-success-url="/login" />
 </s:http>
 	<s:authentication-manager>
 		<s:authentication-provider>

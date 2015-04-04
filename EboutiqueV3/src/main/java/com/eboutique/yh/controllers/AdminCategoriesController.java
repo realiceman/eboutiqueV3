@@ -103,7 +103,7 @@ public class AdminCategoriesController implements HandlerExceptionResolver { //
    }
    
    
-
+   //mis ici mais l'ideal etant de le mettre dans un controleur à part
 @Override
 public ModelAndView resolveException(HttpServletRequest request,
 		HttpServletResponse response, Object arg2, Exception ex) {
