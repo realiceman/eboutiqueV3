@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.eboutique.yh">
+	<logger name="com.eboutique.yh"> 
 		<level value="info" />
 	</logger>
 	
