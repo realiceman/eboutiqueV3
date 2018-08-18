@@ -102,12 +102,9 @@ public class AdminCategoriesController implements HandlerExceptionResolver { //
 	   
    }
    
-   
-   //mis ici mais l'ideal etant de le mettre dans un controleur à part
 @Override
-public ModelAndView resolveException(HttpServletRequest request,
-		HttpServletResponse response, Object arg2, Exception ex) {
-	ModelAndView mv = new ModelAndView(); // permet d'ajouter des attributs
+public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object arg2, Exception ex) {
+	ModelAndView mv = new ModelAndView(); 
 	mv.addObject("categorie", new Categorie());
 	mv.addObject("categories", metier.listCategories());
 	mv.addObject("exception", ex.getMessage());
